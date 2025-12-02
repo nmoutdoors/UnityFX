@@ -1,0 +1,166 @@
+{
+  "$schema": "./schemas/unityfx-manifest.schema.json",
+  "schemaVersion": "0.1.0",
+
+  "unityfx": {
+    "name": "UnityFX",
+    "version": "0.1.0",
+    "description": "Shared pattern library for SPFx solutions (installers, data access, dashboards, UI shell, and components)."
+  },
+
+  "patterns": [
+    {
+      "id": "core.unityfx-principles",
+      "name": "UnityFX Principles",
+      "category": "utility",
+      "description": "High-level principles and philosophy that guide all UnityFX patterns and implementations.",
+      "status": "draft",
+      "file": "patterns/core/00-UnityFX-Principles.md",
+      "tags": ["core", "principles", "architecture"]
+    },
+    {
+      "id": "core.feature-module",
+      "name": "Feature Module Pattern",
+      "category": "utility",
+      "description": "Guidance for structuring UnityFX solutions into feature modules with clear boundaries and responsibilities.",
+      "status": "draft",
+      "file": "patterns/core/05-Feature-Module-Pattern.md",
+      "tags": ["architecture", "modules", "structure"]
+    },
+
+    {
+      "id": "installer.core",
+      "name": "Installer Pattern (Core)",
+      "category": "installer",
+      "description": "Defines the overall UnityFX installer model: spec, validation, creation/fixup, and admin UX.",
+      "status": "draft",
+      "file": "patterns/installers/Installer.Core.md",
+      "tags": ["installer", "spec", "engine", "ui", "idempotent"]
+    },
+    {
+      "id": "installer.basic-list-provisioning",
+      "name": "Installer – Basic List Provisioning",
+      "category": "installer",
+      "description": "Concrete installer sub-pattern for provisioning SharePoint lists, fields, and views in an idempotent, configuration-driven way.",
+      "status": "draft",
+      "file": "patterns/installers/Installer.BasicListProvisioning.md",
+      "tags": ["sharepoint", "spfx", "installer", "lists"],
+      "relatedPatterns": ["installer.core"],
+      "inputs": [
+        "Site/Web",
+        "List definitions",
+        "Field definitions",
+        "View definitions"
+      ],
+      "outputs": [
+        "Provisioned SharePoint lists ready for use by UnityFX components"
+      ]
+    },
+
+    {
+      "id": "data.services-logging-config",
+      "name": "Services Logging Config Pattern",
+      "category": "utility",
+      "description": "Pattern for configuring logging for services and data access within UnityFX-based solutions.",
+      "status": "draft",
+      "file": "patterns/data/03-Services-Logging-Config-Pattern.md",
+      "tags": ["logging", "config", "services"]
+    },
+    {
+      "id": "data.data-access-core",
+      "name": "Data Access Pattern",
+      "category": "utility",
+      "description": "Core data access guidance for UnityFX, including how services interact with repositories and external APIs.",
+      "status": "draft",
+      "file": "patterns/data/04-Data-Access-Pattern.md",
+      "tags": ["data", "access", "services"]
+    },
+    {
+      "id": "dataservice.pnpjs-list-repository",
+      "name": "Data Service – PnPjs List Repository",
+      "category": "data-service",
+      "description": "Encapsulates a SharePoint list in a typed repository built on PnPjs, providing a clean API for UI components.",
+      "status": "draft",
+      "file": "patterns/data/DataService.PnPjsListRepository.md",
+      "tags": ["sharepoint", "spfx", "pnpjs", "data-service"],
+      "inputs": ["Site/Web", "List name/ID", "Domain item model"],
+      "outputs": ["Typed repository interface for list operations"]
+    },
+
+    {
+      "id": "uishell.fullscreen-layout",
+      "name": "Fullscreen Layout Pattern",
+      "category": "ui-shell",
+      "description": "Detailed fullscreen layout pattern for complex UnityFX apps, including shell behavior and advanced layout rules.",
+      "status": "draft",
+      "file": "patterns/ui-shell/02-Fullscreen-Layout-Pattern.md",
+      "tags": ["ui-shell", "fullscreen", "layout"]
+    },
+    {
+      "id": "uishell.fullscreen-lite",
+      "name": "UI – Fullscreen Shell (Lite)",
+      "category": "ui-shell",
+      "description": "Lightweight fullscreen shell pattern with toolbar, fullscreen toggle, and optional side panel, focused on reduced flicker and fast startup.",
+      "status": "draft",
+      "file": "patterns/ui-shell/UiShell.FullscreenLite.md",
+      "tags": ["ui-shell", "fullscreen", "layout"],
+      "relatedPatterns": ["uishell.fullscreen-layout"]
+    },
+
+    {
+      "id": "ui.fluent-ui",
+      "name": "Fluent UI Pattern",
+      "category": "ui-component",
+      "description": "Guidance for using Fluent UI within UnityFX solutions, including component usage and theming expectations.",
+      "status": "draft",
+      "file": "patterns/ui/06-Fluent-UI-Pattern.md",
+      "tags": ["fluentui", "ui", "components"]
+    },
+    {
+      "id": "uicomponent.pill-status-cards",
+      "name": "Pill Status Cards Pattern",
+      "category": "ui-component",
+      "description": "Pattern for pill-style status cards used across UnityFX dashboards and UIs.",
+      "status": "draft",
+      "file": "patterns/ui-components/07-Pill-Status-Cards-Pattern.md",
+      "tags": ["ui", "cards", "status"]
+    },
+
+    {
+      "id": "dashboard.card-grid-with-filters",
+      "name": "Dashboard – Card Grid + Filters",
+      "category": "dashboard",
+      "description": "Standard dashboard layout with filters and a responsive card grid.",
+      "status": "draft",
+      "file": "patterns/dashboards/Dashboard.CardGridWithFilters.md",
+      "tags": ["dashboard", "ui", "cards", "filters"]
+    },
+    {
+      "id": "form.modal-item-editor",
+      "name": "Form – Modal Item Editor",
+      "category": "form",
+      "description": "Modal-based create/edit form pattern for items in a dashboard.",
+      "status": "draft",
+      "file": "patterns/forms/Form.ModalItemEditor.md",
+      "tags": ["form", "modal", "editor"]
+    },
+
+    {
+      "id": "experimental.general",
+      "name": "Experimental Patterns",
+      "category": "other",
+      "description": "Grab-bag of experimental or in-progress UnityFX patterns.",
+      "status": "draft",
+      "file": "patterns/experimental/z-Experimental-Patterns.md",
+      "tags": ["experimental", "wip"]
+    }
+  ],
+
+  "apps": [],
+
+  "metadata": {
+    "createdBy": "UnityFX",
+    "lastUpdatedBy": "UnityFX",
+    "notes": "UnityFX v0.1 manifest. Folder structure and pattern list are expected to grow over time."
+  }
+}

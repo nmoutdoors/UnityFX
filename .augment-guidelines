@@ -1,0 +1,46 @@
+You are working in **UnityFX.Patterns**, the portable pattern library for SPFx solutions.
+
+This repo contains **documentation only** — no implementation code. It is designed to be referenced by other projects (like UnityFX or customer apps) to provide consistent patterns for:
+- Installers (list provisioning, content types, etc.)
+- Data services (PnPjs, caching, logging)
+- UI shells (fullscreen layouts, navigation)
+- Dashboards (card grids, filters)
+- Forms (modal editors, validation)
+- UI components (Fluent UI patterns)
+
+## How to Use This Repo
+
+1. **`unityfx-manifest.json`** is the index of all patterns.
+   - Each pattern has: `id`, `name`, `category`, `file`, `description`
+   - Use this to find relevant patterns for any task
+
+2. **`patterns/`** contains the pattern definitions organized by category:
+   - `core/` — foundational principles and feature module structure
+   - `installers/` — SharePoint provisioning patterns
+   - `data/` — data access, services, logging, config
+   - `ui-shell/` — fullscreen layouts, app shells
+   - `ui/` — Fluent UI usage patterns
+   - `ui-components/` — reusable component patterns
+   - `dashboards/` — dashboard layouts and filtering
+   - `forms/` — modal editors, form handling
+   - `experimental/` — work-in-progress patterns
+
+3. **`docs/`** contains supporting documentation:
+   - `UnityFX-Standing-Orders.md` — rules for all UnityFX projects
+   - `PatternLibrary.md` — how to use and contribute to patterns
+   - Other architectural and naming docs
+
+## When Editing This Repo
+
+- **Do not add implementation code** — this is a pattern library only
+- **Keep patterns focused** — one concept per pattern file
+- **Update the manifest** when adding/removing patterns
+- **Use consistent naming**: `<Category>.<PatternName>.md`
+
+## When Referencing This Repo From Other Projects
+
+Other projects should:
+1. Document the path to this repo in their `.augment-guidelines`
+2. Reference patterns by reading files via shell commands
+3. Follow the patterns when implementing features
+
