@@ -27,6 +27,27 @@
       "file": "patterns/core/05-Feature-Module-Pattern.md",
       "tags": ["architecture", "modules", "structure"]
     },
+    {
+      "id": "core.logger-service",
+      "name": "LoggerService Pattern",
+      "category": "utility",
+      "description": "Two-tier configurable console logging (standard + verbose) with property pane toggles, React Context, and service injection.",
+      "status": "stable",
+      "file": "patterns/core/10-LoggerService-Pattern.md",
+      "tags": ["logging", "debugging", "services", "react-context"]
+    },
+    {
+      "id": "core.security-trimming",
+      "name": "Security Trimming (Permission-Based UI)",
+      "category": "security",
+      "description": "Role-based security trimming for SPFx web parts using SharePoint group membership and site permissions. Show/hide UI elements based on user roles with impersonation support for testing.",
+      "status": "stable",
+      "file": "patterns/core/15-Security-Trimming-Pattern.md",
+      "tags": ["security", "permissions", "sharepoint-groups", "role-based-access", "ui-trimming", "impersonation"],
+      "relatedPatterns": ["core.logger-service"],
+      "inputs": ["WebPartContext", "SharePoint group names"],
+      "outputs": ["Permission state flags", "Conditional UI rendering", "Impersonation mode"]
+    },
 
     {
       "id": "installer.core",
@@ -39,7 +60,7 @@
     },
     {
       "id": "installer.basic-list-provisioning",
-      "name": "Installer – Basic List Provisioning",
+      "name": "Installer - Basic List Provisioning",
       "category": "installer",
       "description": "Concrete installer sub-pattern for provisioning SharePoint lists, fields, and views in an idempotent, configuration-driven way.",
       "status": "draft",
@@ -77,7 +98,7 @@
     },
     {
       "id": "dataservice.pnpjs-list-repository",
-      "name": "Data Service – PnPjs List Repository",
+      "name": "Data Service - PnPjs List Repository",
       "category": "data-service",
       "description": "Encapsulates a SharePoint list in a typed repository built on PnPjs, providing a clean API for UI components.",
       "status": "draft",
@@ -85,6 +106,30 @@
       "tags": ["sharepoint", "spfx", "pnpjs", "data-service"],
       "inputs": ["Site/Web", "List name/ID", "Domain item model"],
       "outputs": ["Typed repository interface for list operations"]
+    },
+    {
+      "id": "dataservice.sharepoint-attachments",
+      "name": "Data Service - SharePoint Attachments",
+      "category": "data-service",
+      "description": "Extension to PnPjs List Repository for managing file attachments on SharePoint list items. Provides getAttachments, uploadAttachment, and deleteAttachment methods.",
+      "status": "stable",
+      "file": "patterns/data/DataService.SharePointAttachments.md",
+      "tags": ["sharepoint", "spfx", "pnpjs", "attachments", "file-upload"],
+      "relatedPatterns": ["dataservice.pnpjs-list-repository", "uicomponent.file-attachments-dropzone"],
+      "inputs": ["Item ID", "File object"],
+      "outputs": ["IAttachment array", "Upload result", "Delete confirmation"]
+    },
+    {
+      "id": "data.hierarchical-rollup",
+      "name": "Hierarchical Data Rollup with SharePoint Lookup Fields",
+      "category": "data",
+      "description": "Multi-level organizational data aggregation using SharePoint lookup field relationships. Handles parent-child-grandchild hierarchies, SharePoint REST API quirks, missing data, and bidirectional categorical-to-numeric conversions.",
+      "status": "stable",
+      "file": "patterns/data/DataAccess.HierarchicalRollup.md",
+      "tags": ["sharepoint", "spfx", "data-aggregation", "hierarchy", "lookup-fields", "rollup", "rest-api"],
+      "relatedPatterns": ["dataservice.pnpjs-list-repository", "data.data-access-core"],
+      "inputs": ["Organization structure with ParentOrg lookup fields", "Assessment/metric data by organization"],
+      "outputs": ["Aggregated averages across parent + children + grandchildren"]
     },
 
     {
@@ -98,13 +143,23 @@
     },
     {
       "id": "uishell.fullscreen-lite",
-      "name": "UI – Fullscreen Shell (Lite)",
+      "name": "UI - Fullscreen Shell (Lite)",
       "category": "ui-shell",
-      "description": "Lightweight fullscreen shell pattern with toolbar, fullscreen toggle, and optional side panel, focused on reduced flicker and fast startup.",
+      "description": "Lightweight fullscreen shell pattern with Fluent UI CommandBar toolbar, fullscreen toggle, theme switching, and optional side panel.",
       "status": "draft",
       "file": "patterns/ui-shell/UiShell.FullscreenLite.md",
-      "tags": ["ui-shell", "fullscreen", "layout"],
-      "relatedPatterns": ["uishell.fullscreen-layout"]
+      "tags": ["ui-shell", "fullscreen", "layout", "fluentui", "commandbar"],
+      "relatedPatterns": ["uishell.fullscreen-layout", "uishell.theme-switching"]
+    },
+    {
+      "id": "uishell.theme-switching",
+      "name": "UI - Theme Switching Pattern",
+      "category": "ui-shell",
+      "description": "Runtime theme switching pattern using Fluent UI ThemeProvider, theme context, and theme-aware SCSS. Supports light/dark mode toggle.",
+      "status": "draft",
+      "file": "patterns/ui-shell/UiShell.ThemeSwitching.md",
+      "tags": ["ui-shell", "theming", "dark-mode", "fluentui", "css-variables"],
+      "relatedPatterns": ["uishell.fullscreen-lite", "ui.fluent-ui"]
     },
 
     {
@@ -125,10 +180,44 @@
       "file": "patterns/ui-components/07-Pill-Status-Cards-Pattern.md",
       "tags": ["ui", "cards", "status"]
     },
+    {
+      "id": "uicomponent.property-pane-custom-controls",
+      "name": "Custom Property Pane Controls Pattern",
+      "category": "ui-component",
+      "description": "Create rich, interactive UI controls for SPFx webpart property panes using React components and Fluent UI. Includes color pickers, font selectors, and advanced controls with live previews and validation.",
+      "status": "stable",
+      "file": "patterns/ui-components/PropertyPane.CustomControls.md",
+      "tags": ["spfx", "property-pane", "react", "fluentui", "color-picker", "font-selector", "validation"],
+      "relatedPatterns": ["ui.fluent-ui"]
+    },
+    {
+      "id": "uicomponent.image-dropzone",
+      "name": "Image Dropzone Pattern",
+      "category": "ui-component",
+      "description": "Drag-and-drop image upload component with circular preview that works reliably in SPFx iframe environments. Uses native drag handlers to bypass react-dropzone limitations, uploads to SharePoint list item attachments.",
+      "status": "stable",
+      "file": "patterns/ui-components/UiComponent.ImageDropzone.md",
+      "tags": ["spfx", "image-upload", "drag-drop", "react", "attachments", "profile-photo"],
+      "relatedPatterns": ["form.modal-item-editor", "dataservice.pnpjs-list-repository"],
+      "inputs": ["Current image URL", "onImageChange callback"],
+      "outputs": ["Blob URL for preview", "File object for upload", "Circular dropzone UI"]
+    },
+    {
+      "id": "uicomponent.file-attachments-dropzone",
+      "name": "File Attachments Dropzone Pattern",
+      "category": "ui-component",
+      "description": "Multi-file drag-and-drop upload component with file list management for SPFx. Handles pending files (staged locally) and existing attachments (from SharePoint). Uses native drag/drop and file input for SPFx iframe compatibility.",
+      "status": "stable",
+      "file": "patterns/ui-components/UiComponent.FileAttachmentsDropzone.md",
+      "tags": ["spfx", "file-upload", "drag-drop", "react", "attachments", "multi-file"],
+      "relatedPatterns": ["form.modal-item-editor", "dataservice.sharepoint-attachments", "uicomponent.image-dropzone"],
+      "inputs": ["existingAttachments", "pendingFiles", "onFilesAdded callback", "onPendingFileRemoved callback", "onExistingAttachmentDeleted callback"],
+      "outputs": ["File list UI", "Drag/drop zone", "Delete/download actions"]
+    },
 
     {
       "id": "dashboard.card-grid-with-filters",
-      "name": "Dashboard – Card Grid + Filters",
+      "name": "Dashboard - Card Grid + Filters",
       "category": "dashboard",
       "description": "Standard dashboard layout with filters and a responsive card grid.",
       "status": "draft",
@@ -137,12 +226,24 @@
     },
     {
       "id": "form.modal-item-editor",
-      "name": "Form – Modal Item Editor",
+      "name": "Form - Modal Item Editor",
       "category": "form",
       "description": "Modal-based create/edit form pattern for items in a dashboard.",
       "status": "draft",
       "file": "patterns/forms/Form.ModalItemEditor.md",
       "tags": ["form", "modal", "editor"]
+    },
+    {
+      "id": "form.dirty-state-discard-dialog",
+      "name": "Form - Dirty State / Unsaved Changes Dialog",
+      "category": "form",
+      "description": "Pattern for detecting dirty form state and prompting users to confirm before discarding unsaved changes. Uses dismissAttempt prop pattern for parent-child coordination across all modal dismiss paths.",
+      "status": "stable",
+      "file": "patterns/forms/Form.DirtyStateDiscardDialog.md",
+      "tags": ["form", "modal", "dirty-state", "unsaved-changes", "dialog", "ux"],
+      "relatedPatterns": ["form.modal-item-editor"],
+      "inputs": ["dismissAttempt prop", "onDismissAttemptHandled callback", "onCancel callback"],
+      "outputs": ["Discard confirmation dialog", "Consistent dismiss behavior"]
     },
 
     {
