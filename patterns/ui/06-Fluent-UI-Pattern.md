@@ -122,7 +122,60 @@ UnityFX should:
 - Minimize hard-coded colors.
 - Keep global overrides small and intentional.
 
-Future pattern work can define theming more deeply, but early UnityFX aims not to fight Fabric/Fluent and the M365 theme system.
+### Built-in Fluent UI Themes
+
+Use `@fluentui/theme-samples` for ready-to-use themes:
+
+```typescript
+import { DefaultTheme, DarkTheme } from '@fluentui/theme-samples';
+import { ITheme, ThemeProvider } from '@fluentui/react';
+
+const lightTheme: ITheme = DefaultTheme as ITheme;
+const darkTheme: ITheme = DarkTheme as ITheme;
+```
+
+### SCSS Variables vs CSS Variables
+
+**⚠️ SCSS variables are NOT theme-aware:**
+
+```scss
+// ❌ BAD - These are compile-time values, won't change with theme
+.card {
+  background-color: $ms-color-white;
+  border: 1px solid $ms-color-neutralLight;
+  color: $ms-color-neutralPrimary;
+}
+```
+
+**✅ Use `inherit` or CSS variables for theme-aware components:**
+
+```scss
+// ✅ GOOD - Inherits from ThemeProvider wrapper
+.card {
+  background-color: inherit;
+  color: inherit;
+}
+
+// ✅ GOOD - Uses CSS variables set by theme
+.card {
+  background-color: var(--neutralLighter);
+  border: 1px solid var(--neutralLight);
+  color: var(--neutralPrimary);
+}
+```
+
+### Theme-Aware Color Reference
+
+| Purpose | CSS Variable | Light Value | Dark Value |
+|---------|--------------|-------------|------------|
+| Page background | `inherit` or `--bodyBackground` | #ffffff | #1f1f1f |
+| Card background | `--neutralLighter` | #f3f2f1 | #2d2d2d |
+| Borders | `--neutralLight` | #edebe9 | #3d3d3d |
+| Primary text | `--neutralPrimary` | #323130 | #f3f2f1 |
+| Secondary text | `--neutralSecondary` | #605e5c | #d2d0ce |
+| Accent color | `--themePrimary` | #0078d4 | #2899f5 |
+
+See the **Theme Switching Pattern** (`UiShell.ThemeSwitching.md`) for full implementation details.
 
 ---
 

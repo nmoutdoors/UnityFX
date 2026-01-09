@@ -1,12 +1,12 @@
-# UnityFX Architecture
+﻿# UnityFX Architecture
 
 UnityFX is organized around a few key concepts:
 
-- **Core services** – logging, config, feature registry
-- **UI framework** – fullscreen layout, toolbars, common components
-- **Data layer** – data client + data services
-- **Feature modules** – self-contained features (dashboards, installers, tools)
-- **SPFx wrappers** – UnityFX apps exposed as SPFx web parts
+- **Core services** - logging, config, feature registry
+- **UI framework** - fullscreen layout, toolbars, common components
+- **Data layer** - data client + data services
+- **Feature modules** - self-contained features (dashboards, installers, tools)
+- **SPFx wrappers** - UnityFX apps exposed as SPFx web parts
 
 ---
 
@@ -16,7 +16,7 @@ UnityFX is organized around a few key concepts:
 
 This is the “outer shell” that SharePoint understands:
 
-- `UnityFxShellWebPart.ts` – SPFx web part host
+- `UnityFxShellWebPart.ts` - SPFx web part host
 - SPFx manifests, bundling, and packaging configs
 
 The web part’s main job is to:
@@ -31,10 +31,10 @@ The web part’s main job is to:
 
 This is where the high-level framework lives.
 
-- `UnityFxAppShell.tsx` – top-level React component for UnityFX apps
-- `services/LoggerService.ts` – shared logging API
-- `services/ConfigService.ts` – configuration loading (from properties, lists, etc.)
-- `services/FeatureService.ts` – feature registry and activation
+- `UnityFxAppShell.tsx` - top-level React component for UnityFX apps
+- `services/LoggerService.ts` - shared logging API
+- `services/ConfigService.ts` - configuration loading (from properties, lists, etc.)
+- `services/FeatureService.ts` - feature registry and activation
 
 Core responsibilities:
 
@@ -46,8 +46,8 @@ Core responsibilities:
 
 ### 3. UnityFX UI (`src/unityfx/ui`)
 
-- `FullscreenLayout.tsx` – implements the fullscreen pattern
-- `TopToolbar.tsx` – toolbar for app title + key actions (fullscreen toggle, config, etc.)
+- `FullscreenLayout.tsx` - implements the fullscreen pattern
+- `TopToolbar.tsx` - toolbar for app title + key actions (fullscreen toggle, config, etc.)
 
 This layer is responsible for:
 
@@ -61,7 +61,7 @@ See `docs/FullscreenPattern.md` and `patterns/02-Fullscreen-Layout-Pattern.md` f
 
 ### 4. UnityFX Data (`src/unityfx/data`)
 
-- `DataClient.ts` – unified data access wrapper (PnP/REST/Graph/etc.)
+- `DataClient.ts` - unified data access wrapper (PnP/REST/Graph/etc.)
 
 Responsibilities:
 

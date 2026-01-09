@@ -1,4 +1,4 @@
-
+﻿
 ---
 
 ## 2. `docs/Overview.md`
@@ -19,9 +19,9 @@ It grew out of real-world solutions like **BigCal** and **ProgramTracker**, wher
 
 UnityFX takes those patterns and turns them into:
 
-1. **Patterns** – documented, reusable “how we do things”
-2. **Templates** – starting points with UnityFX baked in
-3. **Tools** – scripts/CLIs to create new apps and features quickly
+1. **Patterns** - documented, reusable “how we do things”
+2. **Templates** - starting points with UnityFX baked in
+3. **Tools** - scripts/CLIs to create new apps and features quickly
 
 ---
 
@@ -84,6 +84,6 @@ From there, you add **feature modules** using the patterns in `/patterns`.
 
 See:
 
-- `docs/Architecture.md` – to understand how the pieces fit
-- `patterns/00-UnityFX-Principles.md` – to understand the philosophy behind it
+- `docs/Architecture.md` - to understand how the pieces fit
+- `patterns/00-UnityFX-Principles.md` - to understand the philosophy behind it
 

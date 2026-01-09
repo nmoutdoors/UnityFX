@@ -1,4 +1,4 @@
-
+﻿
 ---
 
 ## `docs/Roadmap.md`
@@ -12,7 +12,7 @@ We will refine this over time as patterns stabilize across real applications.
 
 ---
 
-## Phase 0 – Foundation (v0.1)
+## Phase 0 - Foundation (v0.1)
 
 **Status: In Progress**
 
@@ -38,7 +38,7 @@ Deliverables:
 
 ---
 
-## Phase 1 – UnityFX Base & First Real Client (v0.2)
+## Phase 1 - UnityFX Base & First Real Client (v0.2)
 
 **Focus: Make UnityFX usable for real work.**
 
@@ -67,7 +67,7 @@ Key goals:
 
 ---
 
-## Phase 2 – Feature Modules & Data Layer Expansion (v0.3)
+## Phase 2 - Feature Modules & Data Layer Expansion (v0.3)
 
 **Focus: Modular features and richer data services.**
 
@@ -94,7 +94,7 @@ Key goals:
 
 ---
 
-## Phase 3 – Fluent UI & UX Polish (v0.4)
+## Phase 3 - Fluent UI & UX Polish (v0.4)
 
 **Focus: Cohesive, opinionated UX.**
 
@@ -115,7 +115,7 @@ Key goals:
 
 ---
 
-## Phase 4 – Tooling & CLI (v0.5+)
+## Phase 4 - Tooling & CLI (v0.5+)
 
 **Focus: Make UnityFX easier to adopt and scale.**
 
@@ -136,7 +136,7 @@ Key goals:
 
 ---
 
-## Phase 5 – Learning Experience & Public Story (1.x)
+## Phase 5 - Learning Experience & Public Story (1.x)
 
 **Focus: Teaching & broader adoption.**
 

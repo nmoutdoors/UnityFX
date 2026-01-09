@@ -1,4 +1,4 @@
-# UnityFX Fullscreen Pattern (v0.2)
+﻿# UnityFX Fullscreen Pattern (v0.2)
 
 The UnityFX fullscreen pattern solves a real, recurring problem in large SPFx apps:
 
@@ -6,10 +6,10 @@ The UnityFX fullscreen pattern solves a real, recurring problem in large SPFx ap
 
 UnityFX fullscreen is designed to be:
 
-- **Instant visually** – blank, stable canvas ASAP  
-- **Toolbar-first** – title + key controls appear quickly  
-- **App-later** – heavy UI loads after the shell is stable  
-- **Reusable** – the same behavior in every UnityFX app  
+- **Instant visually** - blank, stable canvas ASAP  
+- **Toolbar-first** - title + key controls appear quickly  
+- **App-later** - heavy UI loads after the shell is stable  
+- **Reusable** - the same behavior in every UnityFX app  
 
 This doc is the **conceptual overview**. The technical spec lives in  
 `patterns/02-Fullscreen-Layout-Pattern.md`.
@@ -19,7 +19,7 @@ This doc is the **conceptual overview**. The technical spec lives in
 ## Goals
 
 1. **Blank screen ASAP**  
-   As soon as the SPFx web part container is available, the user should see a clean, white canvas that feels like a standalone app — not a partially rendered SharePoint page.
+   As soon as the SPFx web part container is available, the user should see a clean, white canvas that feels like a standalone app - not a partially rendered SharePoint page.
 
 2. **Toolbar-first render**  
    The very first *intentional* UI should be:
@@ -37,7 +37,7 @@ This doc is the **conceptual overview**. The technical spec lives in
    - layout snapping as fullscreen is activated  
 
 4. **Reusable across apps**  
-   BigCal, ProgramTracker, and any future UnityFX app should get this behavior by simply using the shared layout components — no custom one-off fullscreen hacks.
+   BigCal, ProgramTracker, and any future UnityFX app should get this behavior by simply using the shared layout components - no custom one-off fullscreen hacks.
 
 ---
 
@@ -46,8 +46,8 @@ This doc is the **conceptual overview**. The technical spec lives in
 UnityFX fullscreen is implemented using three core pieces:
 
 1. **A CSS bootstrap class** applied as early as possible  
-2. **A shared layout component** – `FullscreenLayout`  
-3. **A shared toolbar component** – `TopToolbar`  
+2. **A shared layout component** - `FullscreenLayout`  
+3. **A shared toolbar component** - `TopToolbar`  
 
 ### 1. CSS Bootstrap Class
 

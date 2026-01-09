@@ -1,4 +1,4 @@
-# UnityFX.Patterns
+﻿# UnityFX.Patterns
 
 A portable pattern library for SPFx (SharePoint Framework) solutions.
 
@@ -52,18 +52,39 @@ UnityFX.Patterns/
 
 ## Using With AI Assistants
 
-This repo includes an `.augment-guidelines` file that instructs AI assistants how to use the pattern library. Projects referencing UnityFX.Patterns should add to their own `.augment-guidelines`:
+This repo is designed for AI-assisted development. Key files for AI:
+
+| File | Purpose |
+|------|---------|
+| `docs/PatternFinder.md` | **Start here.** Problem-first index ("I need to...") for suggesting patterns |
+| `docs/PatternLibrary.md` | Full index with IDs, status, and source files |
+| `docs/UnityFX-Standing-Orders.md` | Behavioral guidelines for AI assistants |
+
+### Linking UnityFX to a Project
+
+Create a junction in your project root:
+
+```powershell
+New-Item -ItemType Junction -Path ".\unityfx" -Target "C:\code\UnityFX"
+```
+
+### AI Prompt Template
+
+Add this to your project's initial prompt or `.augment-guidelines`:
 
 ```markdown
-**External Pattern Library:**
-- The master pattern library lives at `C:\code\UnityFX.Patterns`
-- Before implementing features, check for relevant patterns
-- Read patterns via: `Get-Content "C:\code\UnityFX.Patterns\patterns\<category>\<pattern>.md"`
+This project uses UnityFX patterns. The library is linked at `./unityfx`.
+
+**AI Instructions:**
+1. When suggesting next steps, consult `unityfx/docs/PatternFinder.md` for relevant patterns
+2. Before implementing features, check if a pattern exists
+3. When implementing, follow the pattern's structure, naming, and checklists
+4. If you discover a reusable pattern, propose adding it to the library
 ```
 
 ## Related Projects
 
-- **UnityFX** — Full implementation framework with templates and tooling
+- **UnityFX** - Full implementation framework with templates and tooling
 
 ## License
 

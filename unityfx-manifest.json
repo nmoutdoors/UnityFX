@@ -11,7 +11,7 @@
   "patterns": [
     {
       "id": "core.unityfx-principles",
-      "name": "UnityFX Principles",
+      "name": "UnityFX Principles", 
       "category": "utility",
       "description": "High-level principles and philosophy that guide all UnityFX patterns and implementations.",
       "status": "draft",

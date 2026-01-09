@@ -44,12 +44,20 @@ Large apps (e.g., dashboards with timelines, datasheets, modals) highlight these
 - `FullscreenLayout` (React component)
   - Provides the main layout (toolbar + content region)
   - Responsible for managing fullscreen state and body scroll lock
+  - Accepts `startInFullscreen` prop (default: `true`)
 - `TopToolbar`
   - Houses:
     - title
-    - fullscreen toggle
-    - property pane/config toggle
+    - fullscreen toggle (expand/collapse icon)
+    - property pane toggle (cogwheel icon) - opens SPFx property pane
   - Optional slots for feature-specific actions
+
+### Web Part Properties
+
+- `startInFullscreen: boolean` (default: `true`)
+  - Controls whether the app launches in fullscreen mode
+  - Exposed in property pane under "Display Settings"
+  - Fullscreen is the primary experience; default to `true`
 
 ### CSS Bootstrap
 
@@ -69,7 +77,7 @@ This avoids flicker and intermediate page states.
 1. **Initialization**
    - SPFx web part identifies its container.
    - Applies `.unityfx-fullscreen-bootstrap` if configured.
-   - Renders `UnityFxAppShell` → `FullscreenLayout`.
+   - Renders `UnityFxAppShell` -> `FullscreenLayout`.
 
 2. **Toolbar-first**
    - `FullscreenLayout` renders:
@@ -84,6 +92,27 @@ This avoids flicker and intermediate page states.
    - The fullscreen toggle button:
      - can switch between fullscreen and “inline” modes
      - ensures proper cleanup of scroll locks and CSS classes
+
+---
+
+## SPFx / Implementation Notes
+
+SPFx targets **ES5** for broad browser compatibility. When implementing the fullscreen pattern:
+
+- **Avoid ES2015+ string methods:**
+  - Use `className.indexOf('controlZone') >= 0` instead of `className.includes('controlZone')`
+
+- **Avoid ES2017+ object methods:**
+  - Use `Object.keys(obj)` + for-loop instead of `Object.entries(obj)`
+
+- **Type casting for dynamic styles:**
+  - Cast `CSSStyleDeclaration` through `unknown` first:
+    ```typescript
+    (element.style as unknown as Record<string, string>)[prop] = value;
+    ```
+
+- **Explicit type annotations:**
+  - Always annotate loop variables to avoid implicit `any` errors
 
 ---
 

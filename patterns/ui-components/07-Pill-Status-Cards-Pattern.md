@@ -1,4 +1,4 @@
-# Pill-Shaped Status Cards Pattern
+﻿# Pill-Shaped Status Cards Pattern
 
 ## Purpose
 
@@ -51,7 +51,7 @@ Use this pattern when:
 
 > Note: The “green” state uses a primary blue for better contrast and theme alignment. :contentReference[oaicite:2]{index=2}  
 
-### Left Column – C/S/P Badges
+### Left Column - C/S/P Badges
 
 - Three circular badges stacked vertically: `C`, `S`, `P`.
 - Size: ~22.5 × 18.5 px, `border-radius: 50%`.
@@ -62,7 +62,7 @@ Use this pattern when:
   - Gray `#7f8c8d` (not set)
 - Layout: flex column, `justify-content: space-evenly`.
 
-### Middle Column – Content
+### Middle Column - Content
 
 - Title:
   - `16px`, `font-weight: 600`, white
@@ -72,7 +72,7 @@ Use this pattern when:
   - single line, ellipsis
 - Layout: vertical flex, `justify-content: space-between`.
 
-### Right Column – Icon Indicators
+### Right Column - Icon Indicators
 
 - Three icon slots, stacked vertically.
 - Slot size: ~25×25 px.

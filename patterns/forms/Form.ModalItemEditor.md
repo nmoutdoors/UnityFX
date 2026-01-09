@@ -1,4 +1,4 @@
-# Form – Modal Item Editor
+﻿# Form - Modal Item Editor
 
 **Category:** form  
 **Status:** draft  
@@ -111,8 +111,8 @@ When generating a modal item editor:
 ## 7. Notes for AI Assistants
 
 - Combine this pattern with:
-  - **Data Service – PnPjs List Repository** for persistence.
-  - **Dashboard – Card Grid + Filters** for the hosting view.
+  - **Data Service - PnPjs List Repository** for persistence.
+  - **Dashboard - Card Grid + Filters** for the hosting view.
 - Do not:
   - Put repository calls directly in the card; keep them in the form or higher-level container.
 - Keep the form **focused and simple**; avoid making the modal a multipage wizard unless absolutely required.

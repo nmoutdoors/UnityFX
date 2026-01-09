@@ -1,4 +1,4 @@
-# Dashboard – Card Grid + Filters
+﻿# Dashboard - Card Grid + Filters
 
 **Category:** dashboard  
 **Status:** draft  

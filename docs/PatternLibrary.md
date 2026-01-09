@@ -1,11 +1,11 @@
-# UnityFX Pattern Library (v0.1)
+﻿# UnityFX Pattern Library (v0.1)
 
 > **Purpose**  
 > This document is the human-readable index of all UnityFX patterns.  
 > Each entry points to one or more source `.md` files and is tagged with a status:
-> - ✅ Proven – used successfully in production
-> - ⚠️ Draft – documented but not yet widely reused
-> - 🧪 Experimental – early ideas, bug notes, or one-off implementations
+> - ✅ Proven - used successfully in production
+> - ⚠️ Draft - documented but not yet widely reused
+> - 🧪 Experimental - early ideas, bug notes, or one-off implementations
 
 ---
 
@@ -57,7 +57,7 @@
 
 | ID | Pattern | Status | Source Files | Notes |
 | -- | ------- | ------ | ------------ | ----- |
-| UFX-PRINT-LEGEND-001 | Legendary Print Pattern | ✅ Proven | `legendary-print-pattern.md`, `LegendaryPrint.md`, `legendary-print-vision.md`, `print-preview-issue-context.md` | High-quality print/export pattern for complex calendar-like layouts. |
+| UFX-PRINT-LEGEND-001 | Legendary Print Pattern | ✅ Proven | `patterns/print/Print.LegendaryPrint.md` | **Content-agnostic** print pattern for any dashboard. Supports image capture (calendars) and HTML generation (reports, profiles). Includes visual design specs for gradient backgrounds, glassmorphism, and "jaw-dropping" polish. |
 | UFX-PRINT-MULTI-001 | Multi-Month Print Pattern | ⚠️ Draft | `MultiMonthPrint-Feature-Documentation.md` | Specific approach for multi-month calendar printing; candidate for generalization. |
 
 ---
@@ -94,7 +94,7 @@
 
 | ID | Pattern | Status | Source Files | Notes |
 | -- | ------- | ------ | ------------ | ----- |
-| UFX-SEC-UI-001 | Permission-Based UI Pattern | ✅ Proven | `permission-based-ui-pattern.md` | Show/hide actions and UI elements based on SharePoint group membership and roles. |
+| UFX-SEC-TRIM-001 | Security Trimming (Permission-Based UI) | ✅ Proven | `patterns/core/15-Security-Trimming-Pattern.md` | Role-based security trimming using SharePoint group membership and site permissions. Includes PermissionChecker utility, component integration, impersonation mode, and fail-safe behavior. Extracted from AskTheDirector production implementation. |
 
 ---
 
@@ -104,6 +104,7 @@ These are more like **supporting practices** than app-level patterns, but they�
 
 | ID | Pattern | Status | Source Files | Notes |
 | -- | ------- | ------ | ------------ | ----- |
+| UFX-CORE-LOGGER-001 | LoggerService Pattern | ✅ Proven | `patterns/core/10-LoggerService-Pattern.md` | Two-tier configurable console logging (standard + verbose). Property pane toggles, React Context, service injection. |
 | UFX-DIAG-001 | Data Diagnostics Tool | ⚠️ Draft | `DATA_DIAGNOSTICS_TOOL.md` | Tool/pattern for inspecting list data quality and anomalies. |
 | UFX-DEBUG-LEGEND-001 | Legend Studio Debugging Session | 🧪 Experimental | `legend-studio-debugging-session.md` | Case study style debugging notes; good candidate to mine for future patterns. |
 | UFX-REFAC-001 | Component Refactoring Summary | 🧪 Experimental | `component-refactoring-summary.md` | Notes on refactoring strategy; should eventually feed into a “Component Design Guidelines” pattern. |
@@ -134,9 +135,9 @@ These files contain useful context but are **not yet formal patterns**. They sho
 
 ## Next Actions
 
-1. **Edit statuses** – Change ✅/⚠️/🧪 based on your real-world confidence.
-2. **Add missing patterns** – If I’ve missed any files, append them to the right section.
-3. **Start referencing this doc in your AI prompts** – e.g.  
+1. **Edit statuses** - Change ✅/⚠️/🧪 based on your real-world confidence.
+2. **Add missing patterns** - If I’ve missed any files, append them to the right section.
+3. **Start referencing this doc in your AI prompts** - e.g.  
    > “Augment, when implementing permissions, use `UFX-SEC-UI-001` from `docs/PatternLibrary.md`.”
 
 Once this feels right, we can:
